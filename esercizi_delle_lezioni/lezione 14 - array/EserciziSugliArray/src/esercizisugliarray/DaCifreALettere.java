@@ -17,7 +17,7 @@ public class DaCifreALettere {
 		return cifreComeLettere;
 	}
 
-	public static void main(String... args) {
+	public static void main(String[] args) {
 		var lettere = DaCifreALettere.daCifreALettere("8495648");
 
 		System.out.println(lettere);
