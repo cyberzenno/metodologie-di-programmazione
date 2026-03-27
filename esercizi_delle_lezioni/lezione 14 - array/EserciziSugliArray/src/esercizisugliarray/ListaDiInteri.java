@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+package esercizisugliarray;
 import java.util.Arrays;
 
 /**
