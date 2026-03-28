@@ -1,4 +1,4 @@
-package eserciziereditarieta.base;
+package formebase;
 
 public class Quadrato extends Forma{
 

@@ -1,4 +1,4 @@
-package eserciziereditarieta.base;
+package formebase;
 
 public abstract class Forma {
 	private String nome;
