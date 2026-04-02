@@ -8,8 +8,8 @@ package esercizisullematrici;
  * 3. stampa matrice <br>
  * 4. aggiungi riga <br>
  * 5. aggiungi colonna <br>
- * 6. ruota anti-orario <br>
- * 7. ruota orario
+ * 6. ruota anti-orario (todo) <br>
+ * 7. ruota orario (todo)
  */
 public class MatriceFlessibile {
 
