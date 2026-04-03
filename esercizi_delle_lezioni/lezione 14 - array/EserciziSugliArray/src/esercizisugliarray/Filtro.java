@@ -89,6 +89,6 @@ public class Filtro {
 		stampa(f.passaBasso(8));
 		stampa(f.passaAlto(9));
 		stampa(f.filtra(2));
-		stampa(f.filtra(2, 7, 42));		
+		stampa(f.filtra(2, 7, 42));
 	}
 }
