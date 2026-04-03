@@ -49,7 +49,7 @@ public class Filtro {
 			case "minoreUguale" -> occorrenze += filtraQuesto[i] <= k ? 1 : 0;
 			case "nonUguale" -> occorrenze += filtraQuesto[i] != k ? 1 : 0;
 
-			default -> throw new IllegalArgumentException("");
+			default -> throw new IllegalArgumentException(tipologia);
 			}
 		}
 
