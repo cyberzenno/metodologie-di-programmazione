@@ -1,10 +1,15 @@
 package esercizisugliarray;
 
 /**
- * Siccome secondo me questi esercizi sono alla base di quasi tutti gli altri,
- * rifaccio Array Flessibile per avere le ideee piu chiare: 1. SplitAt(x) 2.
- * Merge(left, right) 3. InsertAt(x,v) 4. RemoveAt(x) 5. ShiftLeft() 6.
- * ShiftRight()
+ * Siccome secondo me questi esercizi sono alla base di quasi tutti gli
+ * altri,<br>
+ * rifaccio Array Flessibile per avere le idee più chiare:<br>
+ * 1. SplitAt(x)<br>
+ * 2. Merge(left, right)<br>
+ * 3. InsertAt(x, v)<br>
+ * 4. RemoveAt(x)<br>
+ * 5. ShiftLeft()<br>
+ * 6. ShiftRight()<br>
  */
 public class ArrayFlessibile {
 
