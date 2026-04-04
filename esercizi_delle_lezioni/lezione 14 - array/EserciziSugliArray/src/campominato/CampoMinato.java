@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CampoMinato {
 
-	private int w, h;
+	private int w, h, m;
 	private Cella[][] campo;
 	private StatoDelGioco stato;
 
@@ -12,6 +12,7 @@ public class CampoMinato {
 
 		this.w = w;
 		this.h = h;
+		this.m = m;
 		this.stato = StatoDelGioco.IN_GIOCO;
 
 		campo = new Cella[h][w];
@@ -29,80 +30,6 @@ public class CampoMinato {
 
 	}
 
-	public int scopri(int x, int y) {
-		return scopri(x, y, false);
-	}
-
-	private int scopri(int x, int y, boolean autoScopri) {
-		Cella c = campo[y][x];
-
-		int valore = c.getValore();
-
-		if (c.isScoperta())
-			return valore;
-
-		c.scopri();
-
-		if (valore == 0) {
-
-			Cella[] adiacenti = getCelleAdiacenti(x, y);
-			for (int i = 0; i < adiacenti.length; i++) {
-				int ty = adiacenti[i].getY();
-				int tx = adiacenti[i].getX();
-
-				scopri(tx, ty, true);
-			}
-		}
-
-		if (!autoScopri && valore == -1) {
-			stato = StatoDelGioco.PERSO;
-		}
-
-		return valore;
-	}
-
-	public StatoDelGioco getStato() {
-		return stato;
-	}
-
-	public String toString() {
-		String campoAsString = "";
-
-		for (int y = 0; y < h; y++) {
-			for (int x = 0; x < w; x++) {
-				
-				Cella c = campo[y][x];
-				
-				String cellaAsString = c.toString();
-				
-				if(stato == StatoDelGioco.PERSO && c.hasMina())
-					cellaAsString = c.toStringScoperto();
-				
-				campoAsString += String.format("%2s ", cellaAsString);
-			}
-
-			campoAsString += "\n";
-		}
-
-		campoAsString += stato;
-
-		return campoAsString;
-	}
-
-	public String toStringScoperto() {
-		String campoAsString = "";
-
-		for (int y = 0; y < h; y++) {
-			for (int x = 0; x < w; x++) {
-				campoAsString += String.format("%2s ", campo[y][x].toStringScoperto());
-			}
-
-			campoAsString += "\n";
-		}
-
-		return campoAsString;
-	}
-
 	private void spargiMine(int m) {
 		Random r = new Random();
 
@@ -118,7 +45,7 @@ public class CampoMinato {
 			}
 		}
 	}
-
+	
 	private void popolaCelle() {
 
 		for (int y = 0; y < h; y++) {
@@ -131,6 +58,7 @@ public class CampoMinato {
 			}
 		}
 	}
+
 
 	private int numeroDiMineAdiacenti(int x, int y) {
 		Cella[] adiacenti = getCelleAdiacenti(x, y);
@@ -194,6 +122,79 @@ public class CampoMinato {
 
 		return tutteFiltrate;
 
+	}
+	
+	public int scopri(int x, int y) {
+		return scopri(x, y, false);
+	}
+
+	private int scopri(int x, int y, boolean autoScopri) {
+		Cella c = campo[y][x];
+
+		if (c.isScoperta())
+			return c.getValore();
+
+		int valore = c.scopri();
+
+		if (valore == 0) {
+
+			Cella[] adiacenti = getCelleAdiacenti(x, y);
+			for (int i = 0; i < adiacenti.length; i++) {
+				int ty = adiacenti[i].getY();
+				int tx = adiacenti[i].getX();
+
+				scopri(tx, ty, true);
+			}
+		}
+
+		if (!autoScopri && valore == -1) {
+			stato = StatoDelGioco.PERSO;
+		}
+
+		return valore;
+	}
+
+	
+	public StatoDelGioco getStato() {
+		return stato;
+	}
+
+	public String toString() {
+		String campoAsString = "";
+
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+
+				Cella c = campo[y][x];
+
+				String cellaAsString = c.toString();
+
+				if (stato == StatoDelGioco.PERSO && c.hasMina())
+					cellaAsString = c.toStringScoperto();
+
+				campoAsString += String.format("%2s ", cellaAsString);
+			}
+
+			campoAsString += "\n";
+		}
+
+		campoAsString += stato;
+
+		return campoAsString;
+	}
+
+	public String toStringScoperto() {
+		String campoAsString = "";
+
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+				campoAsString += String.format("%2s ", campo[y][x].toStringScoperto());
+			}
+
+			campoAsString += "\n";
+		}
+
+		return campoAsString;
 	}
 
 }
