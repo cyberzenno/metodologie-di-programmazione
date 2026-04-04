@@ -37,14 +37,14 @@ public class CampoMinato {
 		Cella c = campo[y][x];
 
 		int valore = c.getValore();
-	
+
 		if (c.isScoperta())
 			return valore;
 
+		c.scopri();
+
 		if (valore == 0) {
-			
-			c.scopri();
-			
+
 			Cella[] adiacenti = getCelleAdiacenti(x, y);
 			for (int i = 0; i < adiacenti.length; i++) {
 				int ty = adiacenti[i].getY();
@@ -54,13 +54,9 @@ public class CampoMinato {
 			}
 		}
 
-		
-		if(!autoScopri) {
-			c.scopri();
-			
-			if(valore == -1)
-				stato = StatoDelGioco.PERSO;
-		}		
+		if (!autoScopri && valore == -1) {
+			stato = StatoDelGioco.PERSO;
+		}
 
 		return valore;
 	}
@@ -74,12 +70,20 @@ public class CampoMinato {
 
 		for (int y = 0; y < h; y++) {
 			for (int x = 0; x < w; x++) {
-				campoAsString += String.format("%2s ", campo[y][x]);
+				
+				Cella c = campo[y][x];
+				
+				String cellaAsString = c.toString();
+				
+				if(stato == StatoDelGioco.PERSO && c.hasMina())
+					cellaAsString = c.toStringScoperto();
+				
+				campoAsString += String.format("%2s ", cellaAsString);
 			}
 
 			campoAsString += "\n";
 		}
-		
+
 		campoAsString += stato;
 
 		return campoAsString;
