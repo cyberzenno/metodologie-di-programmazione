@@ -26,6 +26,19 @@ public class Cella {
 		this.valore = valore;
 	}
 	
+	public boolean hasMina() {
+		return valore == -1;
+	}
+	
+	public int scopri() {
+		scoperta = true;
+		return valore;
+	}
+	
+	public boolean isScoperta() {
+		return scoperta;
+	}
+	
 	public String toString() {
 		if (!scoperta)
 			return "-";
@@ -36,7 +49,7 @@ public class Cella {
 	public String toStringScoperto() {
 		return switch (valore) {
 		case -1 -> "M";
-		case 0 -> ".";
+		case 0 -> " ";
 		default -> valore + "";
 		};
 	}
