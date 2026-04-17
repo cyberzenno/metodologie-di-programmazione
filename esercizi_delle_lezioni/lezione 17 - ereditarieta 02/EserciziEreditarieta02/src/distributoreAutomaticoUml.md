@@ -1,0 +1,1 @@
+![distributoreAutomaticoUml](distributoreAutomaticoUml.jpg)
