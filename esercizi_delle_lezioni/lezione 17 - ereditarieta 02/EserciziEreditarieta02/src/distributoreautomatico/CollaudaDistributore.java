@@ -34,7 +34,6 @@ public class CollaudaDistributore {
 		out.println("Prodotti terminati. Ci scusiamo per il disagio");
 	}
 
-
 	private static final Scanner sc = new Scanner(System.in);
 
 	private static int promptInteger(String prompt, int max) {
@@ -63,5 +62,4 @@ public class CollaudaDistributore {
 
 		return x;
 	}
-
 }
