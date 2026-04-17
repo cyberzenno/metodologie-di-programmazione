@@ -1,0 +1,1 @@
+![Distributore Automatico UML.jpg](Distributore Automatico UML.jpg)
