@@ -1,4 +1,4 @@
-package contobancarioprotetto;
+package contobancario;
 
 import java.util.Arrays;
 
@@ -27,6 +27,11 @@ public class ContoBancario {
 		return saldo;
 	}
 
+	protected void aggiungiOperazione(Operazione operazione) {
+		storicoOperazioni = Arrays.copyOf(storicoOperazioni, storicoOperazioni.length + 1);
+		storicoOperazioni[storicoOperazioni.length - 1] = operazione;
+	}
+	
 	public void versamento(double denaro) {
 		Operazione operazione = new Versamento(this, denaro);
 		operazione.esegui();
@@ -48,10 +53,6 @@ public class ContoBancario {
 		}
 	}
 
-	protected void aggiungiOperazione(Operazione operazione) {
-		storicoOperazioni = Arrays.copyOf(storicoOperazioni, storicoOperazioni.length + 1);
-		storicoOperazioni[storicoOperazioni.length - 1] = operazione;
-	}
 
 	public String getIban() {
 		return iban;

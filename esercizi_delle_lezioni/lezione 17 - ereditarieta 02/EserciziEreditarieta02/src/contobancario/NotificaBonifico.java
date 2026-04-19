@@ -1,4 +1,4 @@
-package contobancarioprotetto;
+package contobancario;
 
 public class NotificaBonifico extends Operazione {
 

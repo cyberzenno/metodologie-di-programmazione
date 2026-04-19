@@ -1,4 +1,4 @@
-package contobancarioprotetto;
+package contobancario;
 
 public abstract class Operazione {
 

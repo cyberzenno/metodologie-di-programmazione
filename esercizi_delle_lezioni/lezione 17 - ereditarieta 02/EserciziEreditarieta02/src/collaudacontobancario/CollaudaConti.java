@@ -1,6 +1,6 @@
-package contobancario;
+package collaudacontobancario;
 
-import contobancarioprotetto.ContoBancario;
+import contobancario.ContoBancario;
 
 public class CollaudaConti {
 

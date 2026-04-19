@@ -1,4 +1,4 @@
-package contobancarioprotetto;
+package contobancario;
 
 public class Bonifico extends Operazione {
 
