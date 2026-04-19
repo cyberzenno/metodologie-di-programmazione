@@ -22,16 +22,17 @@ public class Bonifico extends Operazione {
 		daSaldoOriginale = da.getSaldo();
 		aSaldoOriginale = a.getSaldo();
 
-		if (daSaldoOriginale - valore >= 0) {
-			da.setSaldo(daSaldoOriginale - valore);
+		if (daSaldoOriginale - valore < 0)
+			return;
 
-			a.setSaldo(aSaldoOriginale + valore);
-		}
+		da.setSaldo(daSaldoOriginale - valore);
+		a.setSaldo(aSaldoOriginale + valore);
 
 		daNuovoSaldo = da.getSaldo();
 		aNuovoSaldo = a.getSaldo();
 
 		da.aggiungiOperazione(this);
+
 		a.aggiungiOperazione(new NotificaBonifico(a, da.getIban(), aSaldoOriginale, valore, aNuovoSaldo));
 	}
 

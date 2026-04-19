@@ -6,11 +6,11 @@ public class ContoBancario {
 
 	private String iban;
 	private double saldo;
-	private Operazione[] storicoOperazioni;
+	private Operazione[] operazioni;
 
 	public ContoBancario(String iban) {
 		this.iban = iban;
-		this.storicoOperazioni = new Operazione[0];
+		this.operazioni = new Operazione[0];
 	}
 
 	/**
@@ -28,34 +28,22 @@ public class ContoBancario {
 	}
 
 	protected void aggiungiOperazione(Operazione operazione) {
-		storicoOperazioni = Arrays.copyOf(storicoOperazioni, storicoOperazioni.length + 1);
-		storicoOperazioni[storicoOperazioni.length - 1] = operazione;
+		operazioni = Arrays.copyOf(operazioni, operazioni.length + 1);
+		operazioni[operazioni.length - 1] = operazione;
 	}
 	
-	public void versamento(double denaro) {
-		Operazione operazione = new Versamento(this, denaro);
-		operazione.esegui();
-	}
-
-	public void prelievo(double denaro) {
-		Operazione operazione = new Prelievo(this, denaro);
-		operazione.esegui();
-	}
-
-	public void bonifico(ContoBancario t, int denaro) {
-		Operazione operazione = new Bonifico(this, t, denaro);
-		operazione.esegui();
-	}
-
-	public void stampaOperazioni() {
-		for (Operazione operazione : storicoOperazioni) {
-			System.out.println(operazione);
-		}
-	}
-
-
 	public String getIban() {
 		return iban;
 	}
 
+	public  Operazione[] getOperazioni() {
+		return operazioni;
+	}	
+	
+	public void stampaOperazioni()
+	{
+		for (Operazione o : getOperazioni()) {
+			System.out.println(o);
+		}
+	}
 }
