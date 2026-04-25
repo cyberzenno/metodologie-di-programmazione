@@ -5,13 +5,13 @@ public class RiferimentiAMetodi {
 	interface interfacciaFunzionaleFaiQualcosaConUnaStringa{
 		void esegui(String qualcosa);
 	}
-	
+		
 	class ClasseCheHaQualcheMetodoStatico {
-		public static void saluta(String nome) {
+		public static void salutaStatico(String nome) {
 			System.out.println("Ciao " + nome);
 		}
 		
-		public static void accarezza(String nome) {
+		public static void accarezzaStatico(String nome) {
 			System.out.println("Pat pat sul " + nome);
 		}		
 	}
@@ -30,12 +30,12 @@ public class RiferimentiAMetodi {
 
 	public static void main(String[] args) {
 		
-		interfacciaFunzionaleFaiQualcosaConUnaStringa saluta = ClasseCheHaQualcheMetodoStatico::saluta;
+		interfacciaFunzionaleFaiQualcosaConUnaStringa saluta = ClasseCheHaQualcheMetodoStatico::salutaStatico;
 		saluta.esegui("pippo");
 		saluta.esegui("pluto");
 		saluta.esegui("topolino\n");
 		
-		interfacciaFunzionaleFaiQualcosaConUnaStringa accarezza = ClasseCheHaQualcheMetodoStatico::accarezza;
+		interfacciaFunzionaleFaiQualcosaConUnaStringa accarezza = ClasseCheHaQualcheMetodoStatico::accarezzaStatico;
 		accarezza.esegui("cane");
 		accarezza.esegui("gatto");
 		accarezza.esegui("topo\n");
@@ -54,7 +54,6 @@ public class RiferimentiAMetodi {
 		interfacciaFunzionaleFaiQualcosaConUnaStringa ritorna = classeStatica::ritorna;
 		ritorna.esegui("Giggino");
 		ritorna.esegui("Giggetto\n");
-		
 	}
 	
 	/*
