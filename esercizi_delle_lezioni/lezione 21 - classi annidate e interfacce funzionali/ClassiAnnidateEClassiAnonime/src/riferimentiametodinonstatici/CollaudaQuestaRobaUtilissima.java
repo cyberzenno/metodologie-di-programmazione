@@ -28,8 +28,13 @@ public class CollaudaQuestaRobaUtilissima {
 	}
 
 	/*
-	 * Orso: emette verso con accento orsese Maiale: emette verso con accento
-	 * maialese Orso: emette verso con accento orsese statico (che e' piu' cosi')
-	 * Maiale: emette verso con accento maialese statico (che e' piu' cosa')
-	 */
+		Orso: emette verso con accento orsese
+		Maiale: emette verso con accento maialese
+		
+		Orso: emette verso con accento orsese statico (che e' piu' cosi')
+		Maiale: emette verso con accento maialese statico (che e' piu' cosa')
+		
+		Orso: emette verso con accento orsese statico modificato (LAMBDA)
+		Maiale: emette verso con accento maialese statico modificato (LAMBDA)
+	*/
 }
