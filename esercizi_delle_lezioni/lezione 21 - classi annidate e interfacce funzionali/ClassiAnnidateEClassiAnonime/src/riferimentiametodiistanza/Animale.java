@@ -1,4 +1,4 @@
-package riferimentiametodinonstatici;
+package riferimentiametodiistanza;
 
 public class Animale {
 

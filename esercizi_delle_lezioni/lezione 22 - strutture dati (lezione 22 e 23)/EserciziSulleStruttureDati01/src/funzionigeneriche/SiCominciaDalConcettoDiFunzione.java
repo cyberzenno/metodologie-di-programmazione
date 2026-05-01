@@ -1,4 +1,4 @@
-package proviamoafarechiarezza;
+package funzionigeneriche;
 
 /**
  * 01. FUNZIONE<br>

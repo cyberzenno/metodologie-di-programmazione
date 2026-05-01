@@ -1,4 +1,4 @@
-package proviamoafarechiarezza;
+package funzionigeneriche;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -100,7 +100,7 @@ public class SiProsegueConLeInterfacceFunzionaliDiJava {
 		//-----------------
 		//preparo lista
 		ArrayList<String> lista = new ArrayList<String>(
-				Arrays.asList("corto", "to", "luuuuuungoooo", "lunghetto", "a","z"));
+				Arrays.asList("corto", "tto", "luuuuuungoooo", "lunghetto", "aa","z"));
 		
 		/*
 		 * FUNCTION <T, T, Integer> E SE POTESSE prendere due tipi e ritornare un (in realta c'e' il BiFunction)
@@ -110,12 +110,13 @@ public class SiProsegueConLeInterfacceFunzionaliDiJava {
 		 */
 		Comparator<String> comparaLunghezza = (x, y) -> x.length() - y.length();
 
+		print("\n\nCompara Lunghezza\n----------------------");
 		Collections.sort(lista, comparaLunghezza);
 		lista.forEach(x -> System.out.println(x));
 		
 		
-		Comparator<String> comparaAlfabetico = (x, y) -> x.compareTo(y);
-		
+		print("\n\nCompara Alfabetico\n----------------------");
+		Comparator<String> comparaAlfabetico = (x, y) -> x.compareTo(y);		
 		Collections.sort(lista, comparaAlfabetico);
 		lista.forEach(x -> System.out.println(x));
 
