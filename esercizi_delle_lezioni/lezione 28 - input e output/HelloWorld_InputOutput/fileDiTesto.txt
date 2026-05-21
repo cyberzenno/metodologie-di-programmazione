@@ -1,0 +1,4 @@
+Hello world from file!
+Riga 1
+Riga 2
+Riga 3
