@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.*;
 
 @SuppressWarnings("unused")
-public class EvvaiColMapping_4 {
+public class Stream_2 {
 	public static void main(String[] args) {
 		// dai, andiamo avanti
 

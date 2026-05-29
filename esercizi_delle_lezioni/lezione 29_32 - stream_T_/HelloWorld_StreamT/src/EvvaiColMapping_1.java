@@ -1,11 +1,10 @@
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class EvvaiColMapping {
+public class EvvaiColMapping_1 {
 	public static void main(String[] args) {
 
 		// siccome vengo da 15 anni di C#, ho realizzato appena adesso che la differenza
@@ -17,9 +16,9 @@ public class EvvaiColMapping {
 		// 1. Create a HashMap<String, Integer> and add 3 entries manually.
 		Map<String, String[]> map = new LinkedHashMap<String, String[]>();
 
-//		String[] x = { "" }; // questo e' ok
-//		//String[] xx = new[] {""}; //questo NON e' ok
-//		String[] xxx = new String[] { "" }; // questo e' ok
+		// String[] x = { "" }; // questo e' ok
+		// String[] xx = new[] {""}; //questo NON e' ok
+		//		String[] xxx = new String[] { "" }; // questo e' ok
 
 		map.put("Nomi", new String[] { "Mario", "Luigi" }); // qui, questo e' L'UNICO CHE E' OK
 		map.put("Cognomi", new String[] { "Rossi", "Verdi", "Bombardelli" });

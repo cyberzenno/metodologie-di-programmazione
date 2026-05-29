@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import java.util.*;
 
-public class EvvaiColMapping_3 {
+public class Stream_1 {
 	public static void main(String[] args) {
 		// dai, andiamo avanti
 
