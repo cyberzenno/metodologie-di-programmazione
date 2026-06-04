@@ -1,9 +1,14 @@
 package factorymethod_pizzeria;
 
+import com.sun.source.tree.YieldTree;
+
+import factorymethod_pizzeria.contenitori.Piatto;
+import factorymethod_pizzeria.contenitori.Scatola;
+
 public abstract class Pizzeria {
 
 	public enum TipoDiPizza {
-		MARGHERITA, BOSCAIOLA
+		MARGHERITA, BOSCAIOLA, CAPRICCIOSA
 	}
 
 	public Piatto<Pizza> ordinaPizzaAlTavolo(TipoDiPizza tipo) {
@@ -42,7 +47,7 @@ public abstract class Pizzeria {
 
 	public Scatola<Pizza> ordinaPizzaSurgelataCotta(TipoDiPizza tipo) {
 		Pizza p = istanziaPizza(tipo);
-		
+
 		// surgela
 		p.surgela();
 
@@ -56,19 +61,32 @@ public abstract class Pizzeria {
 			yield istanziaPizzaMargherita();
 		case BOSCAIOLA:
 			yield istanziaPizzaBoscaiola();
+		case CAPRICCIOSA:
+			yield istanziaCapricciosa();
 		};
 	}
 
 	/**
 	 * Brutal parse: Vegan if starts with 'v', Normal otherwise.
+	 * 
 	 * @param tipoDiPizzeria
 	 * @return Pizzeria
 	 */
 	public static Pizzeria parse(String tipoDiPizzeria) {
-		return tipoDiPizzeria.startsWith("v") ? new PizzeriaVegana()
-				: new PizzeriaNormale();
+
+		return switch (tipoDiPizzeria.charAt(0)) {
+
+		default:
+		case 'n':
+			yield new PizzeriaNormale();
+		case 'v':
+			yield new PizzeriaVegana();
+		case 'g':
+			yield new PizzeriaGourmet();
+
+		};
 	}
-	
+
 	/**
 	 * Factory Method
 	 * 
@@ -82,4 +100,11 @@ public abstract class Pizzeria {
 	 * @return istanza di Pizza Boscaiola
 	 */
 	protected abstract Pizza istanziaPizzaBoscaiola();
+	
+	/**
+	 * Factory Method
+	 * 
+	 * @return istanza di Pizza Capricciosa
+	 */
+	protected abstract Pizza istanziaCapricciosa();
 }

@@ -1,4 +1,6 @@
-package factorymethod_pizzeria;
+package factorymethod_pizzeria.contenitori;
+
+import factorymethod_pizzeria.Pizza;
 
 public class Scatola<P extends Pizza> {
 	private P pizza;

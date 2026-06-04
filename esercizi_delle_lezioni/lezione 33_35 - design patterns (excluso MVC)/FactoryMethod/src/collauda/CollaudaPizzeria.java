@@ -12,7 +12,7 @@ public class CollaudaPizzeria {
 
 		String tipoDiPizzeria = "";
 		while (!tipoDiPizzeria.equals("x")) {
-			tipoDiPizzeria = prompt("Che tipo di pizzeria vuoi? Normale o Vegana? n, v (x to exit)");
+			tipoDiPizzeria = prompt("Che tipo di pizzeria vuoi? Normale, Vegana, Gourmet? n, v, g (x to exit)");
 			if(tipoDiPizzeria.equals("x")) break;
 			
 			Pizzeria pizzeria = Pizzeria.parse(tipoDiPizzeria);
@@ -20,9 +20,8 @@ public class CollaudaPizzeria {
 			String tipoDiPizza = "";
 			while (!tipoDiPizza.equals("x")) {
 
-				tipoDiPizza = prompt("Che tipo di pizza vuoi? Margherita o Boscaiola? m, b (x to exit)");
+				tipoDiPizza = prompt("Che tipo di pizza vuoi? Margherita, Boscaiola o Capricciosa? m, b, c (x to exit)");
 				if(tipoDiPizza.equals("x")) break;
-				
 				
 				var actualTipoDiPizza = Pizza.parse(tipoDiPizza);
 				

@@ -1,4 +1,4 @@
-package factorymethod_pizzeria;
+package factorymethod_pizzeria.pizze;
 
 public class MargheritaNormale extends Margherita {
 	public MargheritaNormale() {

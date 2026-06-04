@@ -1,9 +1,6 @@
 package factorymethod_pizzeria;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import factorymethod_pizzeria.Pizzeria.TipoDiPizza;
 
 public abstract class Pizza {
@@ -83,12 +80,23 @@ public abstract class Pizza {
 	
 	
 	/**
-	 * Brutal parse: Boscaiola if starts with 'b', Margherita otherwise.
+	 * Brutal parse: Boscaiola, Margherita, Cappricciosa.
 	 * @param tipoDiPizza
 	 * @return TipoDiPizza
 	 */
 	public static TipoDiPizza parse(String tipoDiPizza) {
-		return tipoDiPizza.startsWith("b") ? TipoDiPizza.BOSCAIOLA:
-			 TipoDiPizza.MARGHERITA;
+		
+		return switch (tipoDiPizza.charAt(0)) {
+
+		default:
+		case 'b':
+			yield TipoDiPizza.BOSCAIOLA;
+		case 'c':
+			yield TipoDiPizza.CAPRICCIOSA;
+		case 'm':
+			yield TipoDiPizza.MARGHERITA;
+
+		};		
+		
 	}
 }

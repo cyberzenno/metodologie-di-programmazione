@@ -1,4 +1,6 @@
-package factorymethod_pizzeria;
+package factorymethod_pizzeria.pizze;
+
+import factorymethod_pizzeria.Pizza;
 
 public class MargheritaVegana extends Pizza {
 	public MargheritaVegana() {
