@@ -16,3 +16,4 @@ public class Ex1_Main {
 
 //Consegnare:
 //- il file Ex1.pdf con il disegno dello stato della memoria, NON COMPRESSO.
+
