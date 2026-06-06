@@ -6,45 +6,72 @@ import ex_2_ricette_ingredienti.Ex2_Ricetta.Tipologia;
 public class Ex2_CollaudaRicette {
 	public static void main(String[] args) {
 
-		//disclaimer gastronomico: 
-		//ingredienti e quantita' sono puramente indicativi per lo scopo dell'esercizio
-		//e non intende in alcun modo rappresentare le qualita' culinarie dell'autore
-		
-		Ex2_Ricetta amatriciana =
-		        new Ex2_Ricetta.Ex2_RicettaBuilder()
-		                .setNome("Rigatoni all'amatriciana")
-		                .setDescrizione("Deliziosa ricetta romana per quattro persone.")
-		                .setTipologia(Tipologia.NON_VEGANA)
-		                .setLivelloDiDifficolta(LivelloDiDifficolta.FACILE)
-		                .addIngrediente("Rigatoni", 500)
-		                .addIngrediente("Guanciale", 200)
-		                .addIngrediente("Pomodoro", 800)
-		                .addIngrediente("Pecorino", 150)
-		                .addIngrediente("Olio extravergine d'oliva", 20)
-		                .addIngrediente("Pepe nero", 5)
-		                .build();
-		
-		Ex2_Ricetta amatricianaVegana =
-		        new Ex2_Ricetta.Ex2_RicettaBuilder()
-		                .setNome("Rigatoni all'amatriciana vegana")
-		                .setDescrizione("Versione vegana della classica amatriciana.")
-		                .setTipologia(Tipologia.VEGANA)
-		                .setLivelloDiDifficolta(LivelloDiDifficolta.MEDIO)
-		                .addIngrediente("Rigatoni", 500)
-		                .addIngrediente("Tofu affumicato", 200)
-		                .addIngrediente("Pomodoro DOP", 400)
-		                .addIngrediente("Formaggio di soia", 30)
-		                .addIngrediente("Olio extravergine d'oliva", 20)
-		                .addIngrediente("Pepe nero", 5)
-		                .build();
-		
-		
 		Ex2_Ricette ricette = Ex2_Ricette.getInstance();
+
+		for (Ex2_Ricetta r : creaRicetteDiCollaudo()) {
+			ricette.addRicetta(r);
+		}
+
+		var mappaTipoRicetta = ricette.getMappaTipologiaRicette();
+
+		mappaTipoRicetta.forEach((k, v) -> {
+
+			System.out.print(k + ": ");
+			System.out.println(v.stream().map(x -> x.getNome()).toList());
+
+		});
+
+		var mappaIngredientiQuantita = ricette.getHashMappaIngredientiQuantitaPerTipologiaRicette(Tipologia.VEGANA);
+
+		mappaIngredientiQuantita.forEach((k, v) -> {
+
+			System.out.print(k + ": ");
+			System.out.println(v);
+
+		});
+
+	}
+
+	private static Ex2_Ricetta[] creaRicetteDiCollaudo() {
+
+		Ex2_Ricetta r1 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Rossa con carne")
+				.setDescrizione("Ricetta rossa.")
+				.setTipologia(Tipologia.NON_VEGANA)
+				.setLivelloDiDifficolta(LivelloDiDifficolta.FACILE)
+				.addIngrediente("Olio", 50)
+				.addIngrediente("Pomodoro", 500)
+				.addIngrediente("Carne", 200)
+				.build();
 		
-		ricette.addRicetta(amatriciana);
-		ricette.addRicetta(amatricianaVegana);
+		Ex2_Ricetta r2 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Verde con carne")
+				.setDescrizione("Ricetta Verde.")
+				.setTipologia(Tipologia.NON_VEGANA)
+				.setLivelloDiDifficolta(LivelloDiDifficolta.MEDIO)
+				.addIngrediente("Olio", 51)
+				.addIngrediente("Spinaci", 501)
+				.addIngrediente("Carne", 202)
+				.build();
 		
+		Ex2_Ricetta r3 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Rossa vegana")
+				.setDescrizione("Ricetta rossa.")
+				.setTipologia(Tipologia.VEGANA)
+				.setLivelloDiDifficolta(LivelloDiDifficolta.FACILE)
+				.addIngrediente("Olio", 52)
+				.addIngrediente("Pomodoro", 502)
+				.addIngrediente("Tofu", 202)
+				.build();
 		
+		Ex2_Ricetta r4 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Verde vegana")
+				.setDescrizione("Ricetta Verde.")
+				.setTipologia(Tipologia.VEGANA)
+				.setLivelloDiDifficolta(LivelloDiDifficolta.MEDIO)
+				.addIngrediente("Olio", 53)
+				.addIngrediente("Spinaci", 503)
+				.addIngrediente("Tofu", 203)
+				.build();
+		
+
+		return new Ex2_Ricetta[] { r1, r2, r3, r4 };
 
 	}
 }
