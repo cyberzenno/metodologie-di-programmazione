@@ -11,7 +11,8 @@ import ex_2_ricette_ingredienti.Ex2_Ricetta.Tipologia;
 
 /**
  * Classe singleton per la gestione di un insieme di ricette, intesa come:
- * aggiunta, rimozione, metodi di filtraggio
+ * itarazione sulle ricette, aggiunta, rimozione e metodi di filtraggio.
+ * Implementa Iterable per lo scorrimento delle ricette.
  */
 public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 
@@ -44,27 +45,28 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 	}
 
 	/**
-	 * 
+	 * Aggiunge una ricetta alla collezione
 	 *
-	 * @param ricetta
+	 * @param la ricetta da aggiungere alla collezione
 	 */
 	public void addRicetta(Ex2_Ricetta ricetta) {
 		this.ricette.add(ricetta);
 	}
 
 	/**
-	 * 
+	 * Rimuove una ricetta alla collezione
 	 *
-	 * @param ricetta
+	 * @param la ricetta da rimuovere dalla collezione
 	 */
 	public void removeRicetta(Ex2_Ricetta ricetta) {
 		this.ricette.remove(ricetta);
 	}
 
 	/**
-	 * 
+	 * Implementazione dell'interfaccia iterable, che ritorna l'iterator della
+	 * collezione interna, nel nostro caso un HashSet
 	 *
-	 * @return
+	 * @return l'iteratore da utilizzare per scorrere le ricette
 	 */
 	@Override
 	public Iterator<Ex2_Ricetta> iterator() {
@@ -72,19 +74,22 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 	}
 
 	/**
-	 * 
+	 * Ritorna una mappa con chiave Tipologia e valori gli insiemi di ricette con
+	 * quella tipologia
 	 *
-	 * @return
+	 * @return la mappa di Ricette per Tipologia
 	 */
 	public Map<Tipologia, Set<Ex2_Ricetta>> getMappaTipologiaRicette() {
 		return ricette.stream().collect(groupingBy(x -> x.getTipologia(), toCollection(HashSet::new)));
 	}
 
 	/**
+	 * Data una tipologia di ricetta, ritorna una mappa di quantita' in grammi
+	 * raggruppati per nome.
 	 * 
 	 *
-	 * @param tipologia
-	 * @return
+	 * @param la tipologia di ricetta
+	 * @return la mappa di Quantita' in grammi per Nome Ingrediente
 	 */
 	public Map<String, List<Integer>> getHashMappaIngredientiQuantitaPerTipologiaRicette(Tipologia tipologia) {
 		var result = ricette.stream().filter(x -> x.getTipologia() == tipologia)
@@ -92,7 +97,6 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 				.collect(groupingBy(x -> x.getNome(), mapping(x -> x.getQuantitaInGrammi(), toList())));
 
 		return result;
-
 	}
 
 }
