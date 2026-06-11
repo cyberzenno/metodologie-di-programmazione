@@ -35,7 +35,7 @@ public class Ex2_CollaudaRicette {
 	private static Ex2_Ricetta[] creaRicetteDiCollaudo() {
 
 		Ex2_Ricetta r1 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Rossa con carne")
-				.setDescrizione("Ricetta rossa.")
+				.setDescrizione("Ricetta rossa: fai questo, fai quello")
 				.setTipologia(Tipologia.NON_VEGANA)
 				.setLivelloDiDifficolta(LivelloDiDifficolta.FACILE)
 				.addIngrediente("Olio", 50)
@@ -44,7 +44,7 @@ public class Ex2_CollaudaRicette {
 				.build();
 		
 		Ex2_Ricetta r2 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Verde con carne")
-				.setDescrizione("Ricetta Verde.")
+				.setDescrizione("Ricetta verde: fai quello, fai questo")
 				.setTipologia(Tipologia.NON_VEGANA)
 				.setLivelloDiDifficolta(LivelloDiDifficolta.MEDIO)
 				.addIngrediente("Olio", 51)
@@ -53,7 +53,7 @@ public class Ex2_CollaudaRicette {
 				.build();
 		
 		Ex2_Ricetta r3 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Rossa vegana")
-				.setDescrizione("Ricetta rossa.")
+				.setDescrizione("Ricetta rossa vegana: fai questo, fai quello")
 				.setTipologia(Tipologia.VEGANA)
 				.setLivelloDiDifficolta(LivelloDiDifficolta.FACILE)
 				.addIngrediente("Olio", 52)
@@ -62,7 +62,7 @@ public class Ex2_CollaudaRicette {
 				.build();
 		
 		Ex2_Ricetta r4 = new Ex2_Ricetta.Ex2_RicettaBuilder().setNome("Verde vegana")
-				.setDescrizione("Ricetta Verde.")
+				.setDescrizione("Ricetta verde vegana: fai quello, fai questo")
 				.setTipologia(Tipologia.VEGANA)
 				.setLivelloDiDifficolta(LivelloDiDifficolta.MEDIO)
 				.addIngrediente("Olio", 53)
@@ -70,8 +70,6 @@ public class Ex2_CollaudaRicette {
 				.addIngrediente("Tofu", 203)
 				.build();
 		
-
-		return new Ex2_Ricetta[] { r1, r2, r3, r4 };
-
+		return new Ex2_Ricetta[] { r1, r2, r3, r4, r1, r2, r3, r4 };
 	}
 }
