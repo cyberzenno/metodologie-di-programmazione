@@ -3,6 +3,9 @@ package ex_2_ricette_ingredienti;
 import ex_2_ricette_ingredienti.Ex2_Ricetta.LivelloDiDifficolta;
 import ex_2_ricette_ingredienti.Ex2_Ricetta.Tipologia;
 
+/**
+ * Classe di collaudo per l'esercizio delle ricette
+ */
 public class Ex2_CollaudaRicette {
 	public static void main(String[] args) {
 

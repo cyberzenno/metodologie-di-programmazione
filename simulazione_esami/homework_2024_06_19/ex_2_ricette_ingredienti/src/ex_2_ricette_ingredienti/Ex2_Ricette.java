@@ -47,7 +47,7 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 	/**
 	 * Aggiunge una ricetta alla collezione
 	 *
-	 * @param la ricetta da aggiungere alla collezione
+	 * @param ricetta la ricetta da aggiungere alla collezione
 	 */
 	public void addRicetta(Ex2_Ricetta ricetta) {
 		this.ricette.add(ricetta);
@@ -56,7 +56,7 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 	/**
 	 * Rimuove una ricetta alla collezione
 	 *
-	 * @param la ricetta da rimuovere dalla collezione
+	 * @param ricetta la ricetta da rimuovere dalla collezione
 	 */
 	public void removeRicetta(Ex2_Ricetta ricetta) {
 		this.ricette.remove(ricetta);
@@ -84,12 +84,11 @@ public class Ex2_Ricette implements Iterable<Ex2_Ricetta> {
 	}
 
 	/**
-	 * Data una tipologia di ricetta, ritorna una mappa di quantita' in grammi
-	 * raggruppati per nome.
-	 * 
+	 * Data una tipologia di ricetta, ritorna la mappa dei nomi degli ingredienti,
+	 * accoppiati alla lista delle quantita' di utilizzo
 	 *
-	 * @param la tipologia di ricetta
-	 * @return la mappa di Quantita' in grammi per Nome Ingrediente
+	 * @param tipologia la tipologia di ricetta
+	 * @return la mappa di Nome Ingredientec con la lista delle quantita'
 	 */
 	public Map<String, List<Integer>> getHashMappaIngredientiQuantitaPerTipologiaRicette(Tipologia tipologia) {
 		var result = ricette.stream().filter(x -> x.getTipologia() == tipologia)

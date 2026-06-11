@@ -1,5 +1,6 @@
 package ex_2_ricette_ingredienti;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -34,8 +35,8 @@ public class Ex2_Ricetta {
 	/** La tipologia. */
 	private Tipologia tipologia;
 
-	/** L'insieme degli ingredienti */
-	private Set<Ex2_Ingrediente> ingredienti;
+	/** La collezione degli ingredienti */
+	private Collection<Ex2_Ingrediente> ingredienti;
 
 	/**
 	 * Costruttore privato della ricetta, la cui costruzione effettiva è delegata al
@@ -48,7 +49,7 @@ public class Ex2_Ricetta {
 	 * @param ingredienti         gli ingredienti
 	 */
 	private Ex2_Ricetta(String nome, String descrizione, LivelloDiDifficolta livelloDiDifficolta, Tipologia tipologia,
-			Set<Ex2_Ingrediente> ingredienti) {
+			Collection<Ex2_Ingrediente> ingredienti) {
 
 		this.nome = nome;
 		this.descrizione = descrizione;
@@ -69,7 +70,7 @@ public class Ex2_Ricetta {
 	/**
 	 * Ritorna la descrizione dei passi da seguire della ricetta.
 	 *
-	 * @return the descrizione
+	 * @return la descrizione
 	 */
 	public String getDescrizione() {
 		return descrizione;
@@ -98,7 +99,7 @@ public class Ex2_Ricetta {
 	 *
 	 * @return gli ingredienti
 	 */
-	public Set<Ex2_Ingrediente> getIngredienti() {
+	public Collection<Ex2_Ingrediente> getIngredienti() {
 		return ingredienti;
 	}
 
@@ -106,7 +107,7 @@ public class Ex2_Ricetta {
 	 * Override del metodo equals basato su: nome, descrizione, tipologia. Assumiamo
 	 * che se due ricette hanno questi valori uguali, allora sono uguali.
 	 *
-	 * @param l'oggetto con cui confrontare
+	 * @param obj l'oggetto con cui confrontare
 	 * @return risultato del confronto di uguaglianza
 	 */
 	@Override
@@ -168,8 +169,8 @@ public class Ex2_Ricetta {
 		/** La tipologia. */
 		private Tipologia tipologia;
 
-		/** L'insieme degli ingredienti */
-		private Set<Ex2_Ingrediente> ingredienti;
+		/** La collezione degli ingredienti */
+		private Collection<Ex2_Ingrediente> ingredienti;
 
 		/**
 		 * Costruttore della classe builder per la ricetta
@@ -181,7 +182,7 @@ public class Ex2_Ricetta {
 		/**
 		 * Imposta il nome da utilizzare durante la costruzione finale della ricetta
 		 *
-		 * @param il nome della ricetta
+		 * @param nome il nome della ricetta
 		 * @return l'istanza della classe builder per il successivo passaggio da impostare
 		 */
 		public Ex2_RicettaBuilder setNome(String nome) {
@@ -192,7 +193,7 @@ public class Ex2_Ricetta {
 		/**
 		 * Imposta la descrizione dei passaggi della ricetta da utilizzare durante la costruzione finale della ricetta
 		 *
-		 * @param la descrizione dei passaggi della ricetta
+		 * @param descrizione la descrizione dei passaggi della ricetta
 		 * @return l'istanza della classe builder per il successivo passaggio da impostare
 		 */
 		public Ex2_RicettaBuilder setDescrizione(String descrizione) {
@@ -203,7 +204,7 @@ public class Ex2_Ricetta {
 		/**
 		 * Imposta il livello di difficolta' della ricetta da utilizzare durante la costruzione finale della ricetta
 		 *
-		 * @param il livello di difficolta' della ricetta
+		 * @param livelloDiDifficolta il livello di difficolta' della ricetta
 		 * @return l'istanza della classe builder per il successivo passaggio da impostare
 		 */
 		public Ex2_RicettaBuilder setLivelloDiDifficolta(LivelloDiDifficolta livelloDiDifficolta) {
@@ -214,7 +215,7 @@ public class Ex2_Ricetta {
 		/**
 		 * Imposta la tipologia della ricetta da utilizzare durante la costruzione finale della ricetta
 		 *
-		 * @param la tipologia della ricetta
+		 * @param tipologia la tipologia della ricetta
 		 * @return l'istanza della classe builder per il successivo passaggio da impostare
 		 */
 		public Ex2_RicettaBuilder setTipologia(Tipologia tipologia) {
@@ -225,8 +226,8 @@ public class Ex2_Ricetta {
 		/**
 		 * Aggiunge un ingrediente alla lista degli ingredienti da utilizzare durante la costruzione finale della ricetta
 		 *
-		 * @param il nome dell'ingrediente
-		 * @param i grammi da utilizzare per l'ingrediente 
+		 * @param nome il nome dell'ingrediente
+		 * @param grammi i grammi da utilizzare per l'ingrediente 
 		 * @return l'istanza della classe builder per il successivo passaggio da impostare
 		 */
 		public Ex2_RicettaBuilder addIngrediente(String nome, int grammi) {

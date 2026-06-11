@@ -14,8 +14,8 @@ public class Ex2_Ingrediente {
 	/**
 	 * Costruttore dell'ingrediente
 	 *
-	 * @param il dell'ingrediente
-	 * @param la quantita' in grammi da utilizzare
+	 * @param nome il dell'ingrediente
+	 * @param quantitaInGrammi la quantita' in grammi da utilizzare
 	 */
 	public Ex2_Ingrediente(String nome, int quantitaInGrammi) {
 		this.nome = nome;
